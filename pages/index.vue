@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import DataTable from '~/components/DataTable.vue'
-import sales from '~/api/sales.js'
+import DataTable from "~/components/DataTable.vue";
+import sales from "~/api/sales.js";
 
 export default {
   components: {
@@ -28,29 +28,29 @@ export default {
       sales,
       items: [],
       headers: [
-        { text: 'Name', value: 'user', align: 'start' },
-        { text: 'Email', value: 'email' },
-        { text: 'Gender', value: 'gender' },
-        { text: 'Year', value: 'year' },
-        { text: 'Sales', value: 'sales' },
-        { text: 'Country', value: 'country' },
-      ],
-    }
+        { text: "Name", value: "user", align: "start", width: "180px" },
+        { text: "Email", value: "email", width: "300px" },
+        { text: "Gender", value: "gender", width: "180px" },
+        { text: "Year", value: "year", width: "180px" },
+        { text: "Sales", value: "sales", width: "180px" },
+        { text: "Country", value: "country", width: "180px" }
+      ]
+    };
   },
   async created() {
-    this.items = await this.fetchData(0, 50)
+    this.items = await this.fetchData(0, 50);
   },
   methods: {
     async fetchData(page, size) {
-      const start = page * size
-      await this.delay(3000)
-      return await sales.results.slice(start, start + size)
+      const start = page * size;
+      await this.delay(3000);
+      return await sales.results.slice(start, start + size);
     },
     delay(ms) {
-      return new Promise(resolve => setTimeout(resolve, ms))
+      return new Promise(resolve => setTimeout(resolve, ms));
     }
   }
-}
+};
 </script>
 
 <style lang="sass" scoped>
