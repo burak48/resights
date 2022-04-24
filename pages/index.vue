@@ -6,6 +6,9 @@
           v-if="items.length"
           :headers="headers"
           :items="items"
+          :page="page"
+          :itemsPerPage="itemsPerPage"
+          :pageCount="pageCount"
         )
         v-progress-circular(
           v-else
@@ -34,7 +37,10 @@ export default {
         { text: "Year", value: "year", width: "180px" },
         { text: "Sales", value: "sales", width: "180px" },
         { text: "Country", value: "country", width: "180px" }
-      ]
+      ],
+      page: 1,
+      pageCount: 0,
+      itemsPerPage: 10
     };
   },
   async created() {
