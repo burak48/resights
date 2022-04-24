@@ -38,7 +38,7 @@ export default {
     };
   },
   async created() {
-    this.items = await this.fetchData(0, 50);
+    this.items = await this.fetchData(0, sales.totalCount);
   },
   methods: {
     async fetchData(page, size) {
